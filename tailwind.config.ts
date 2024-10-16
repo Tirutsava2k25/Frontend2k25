@@ -12,6 +12,12 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        'ComingSoon-bg': "url('/images/comingSoon/nat-dA0-qxdbyyY-unsplash 1.png')",
+      }
+    },
+    screens:{
+      'xs': '515px',
     },
   },
   plugins: [],
