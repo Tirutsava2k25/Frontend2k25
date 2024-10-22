@@ -11,7 +11,7 @@ interface contentBoxProps {
 const contentBox = ({ text, icon, horizontalShift, verticalShift }: contentBoxProps) => {
     const chamferLength = Math.sqrt(horizontalShift**2 + verticalShift**2) + 0.05;
     const chamferAngle = Math.atan(horizontalShift/verticalShift)*180/Math.PI;
-    const chamferSqDia = Math.sqrt(2*(horizontalShift**2 + verticalShift**2));
+    const chamferDisp = ((Math.sqrt(2)*Math.cos(Math.PI/4 - chamferAngle) - 1)*chamferLength/2)-0.08;
 
     return (
         <div className={`relative z-10 top-4 right-14 text-xl font-bold uppercase tracking-widest border-2 bg-neutral-800 border-white px-5 py-3 chamfered-border`}>
@@ -40,14 +40,14 @@ const contentBox = ({ text, icon, horizontalShift, verticalShift }: contentBoxPr
                         z-index: -1;
                     }
                     .chamfered-border::before {
-                        top: 0.25rem;
-                        left: 0.25rem;
+                        top: ${chamferDisp}rem;
+                        left: ${chamferDisp}rem;
                         border-left: 2px solid white; /* Chamfer border color */
                         transform: rotate(${chamferAngle}deg);
                     }
                     .chamfered-border::after {
-                        bottom: 0.25rem;
-                        right: 0.25rem;
+                        bottom: ${chamferDisp}rem;
+                        right: ${chamferDisp}rem;
                         border-right: 2px solid white; /* Chamfer border color */
                         transform: rotate(${chamferAngle}deg);
                     }
