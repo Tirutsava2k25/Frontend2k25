@@ -15,6 +15,7 @@ const config: Config = {
       },
       backgroundImage: {
         'ComingSoon-bg': "url('/images/comingSoon/nat-dA0-qxdbyyY-unsplash 1.png')",
+        'custom-bg': "url('/images/newLayout/BgImage.png')", // Custom background image
       },
       clipPath: {
         'chamfered': 'polygon(0% 0%, calc(100% - 10px) 0%, 100% 10px, 100% 100%, 10px 100%, 0% calc(100% - 10px))',

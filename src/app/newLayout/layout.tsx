@@ -1,6 +1,7 @@
 "use client"
 import React from 'react';
 import localFont from 'next/font/local';
+import { Agdasima } from 'next/font/google';
 
 // Font Imports
 const warpenFont = localFont({
@@ -16,6 +17,13 @@ const warpenFont = localFont({
     variable: '--font-warpen',
 })
 
+const agdasima = Agdasima({
+    subsets: ['latin'], // Specify the subset(s) you need
+    weight: '400', // Specify font weight, Agdasima only has 400 weight
+    style: 'normal', // Specify if you want to use normal or italic
+    variable: '--font-agdasima' // Optional: define a CSS variable for the font
+});
+
 // Import compnents
 import ContentBox from '../../components/ContentBox';
 
@@ -28,14 +36,13 @@ export default function NewLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div className={`${warpenFont.className}`}>
+        <div className={`${agdasima.className} bg-custom-bg bg-cover bg-center min-h-screen`}>
             <div className={`relative -top-8 -left-8 w-[102%] bg-black text-white p-6 flex flex-row items-center justify-between`}>
-                <div className={`relative z-10 text-4xl font-bold uppercase tracking-widest border-2 bg-neutral-800 border-white px-6 py-4 chamfered-border ${warpenFont.className}`}>
+                <div className={`relative z-10 text-4xl font-bold uppercase tracking-widest border-[0.2px] bg-neutral-800 border-white px-6 py-4 chamfered-border ${warpenFont.className}`}>
                     <span className="block">TIRUTSAVA</span>
                     <style jsx>{`
                     .chamfered-border {
                         position: relative;
-                        display: inline-block;
                         clip-path: polygon(
                             1rem 0%,
                             100% 0%,
@@ -44,7 +51,7 @@ export default function NewLayout({
                             0% 100%,
                             0% 1rem
                         );
-                        border: 1px solid white;
+                        border: 0.2px solid white;
                     }
                     .chamfered-border::after {
                         content: '';
@@ -57,7 +64,7 @@ export default function NewLayout({
                     .chamfered-border::after {
                         bottom: 0.37rem;
                         right: 0.37rem;
-                        border-right: 2px solid white; /* Chamfer border color */
+                        border-right: 1px solid white; /* Chamfer border color */
                         transform: rotate(40deg);
                     }
                 `}</style>
@@ -65,6 +72,8 @@ export default function NewLayout({
                 <ContentBox
                     text={'Adnan Rizvi'}
                     icon={<FaUser />}
+                    horizontalShift={1.1}
+                    verticalShift={1.1}
                 />
             </div>
             <main>{children}</main>
