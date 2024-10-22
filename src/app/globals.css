@@ -25,3 +25,8 @@ body {
     text-wrap: balance;
   }
 }
+
+/* globals.css or equivalent */
+.chamfered-corners {
+  clip-path: polygon(10% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%, 0% 10%);
+}
